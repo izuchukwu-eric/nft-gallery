@@ -77,7 +77,7 @@ const Home: NextPage = () => {
           Let's go!!
         </button>
       </div>
-      <div>
+      <div className='flex flex-wrap gap-y-12 mt-4 w-5/6 gap-x-2 justify-center'>
         {
           NFTs.length && NFTs.map((nft, i) => {
             return (
