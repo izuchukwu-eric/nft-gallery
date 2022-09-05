@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useState } from 'react';
+import NFTCard from "../components/nftCard";
 
 const alchemyAPIKey = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 
@@ -7,7 +8,7 @@ const alchemyAPIKey = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 const Home: NextPage = () => {
   const [wallet, setWalletAddress] = useState("");
   const [collection, setCollectionAddress] = useState("");
-  const [NFTs, setNFTs] = useState({});
+  const [NFTs, setNFTs] = useState([]);
   const [fetchForCollection, setFetchForCollection] = useState(false);
 
 
@@ -75,6 +76,15 @@ const Home: NextPage = () => {
         >
           Let's go!!
         </button>
+      </div>
+      <div>
+        {
+          NFTs.length && NFTs.map((nft, i) => {
+            return (
+              <NFTCard nft={nft} key={i + 1} />
+            )
+          })
+        }
       </div>
     </div>
   )
